@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+void swap(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void quicksort(int* arr, int left, int right) {
     if (left < right) {
         int pivot = arr[left];
@@ -11,9 +17,7 @@ void quicksort(int* arr, int left, int right) {
             while (i <= j && pivot < arr[j])
                 j--;
             if (i < j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                swap(&arr[i], &arr[j]);
                 i++;
                 j--;
             }
